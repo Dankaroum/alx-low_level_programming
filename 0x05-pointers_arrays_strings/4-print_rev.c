@@ -1,20 +1,19 @@
 #include "holberton.h"
+
 /**
- * print_rev - minic the stdio version of puts
- * @s: the value to process to the stdout in reverse.
+ * print_rev - This function prints a reverse string
+ *
+ * @s: This is the input string
  */
 void print_rev(char *s)
 {
-	int count;
+	int index;
 
-	while (*(s + count) != '\0')
+	for (index = 0; s[index] != '\0'; index++)
+		;
+	for (index = index - 1; s[index] != '\0'; index--)
 	{
-		count++;
-	}
-
-	while (count--)
-	{
-		_putchar(*(s + (count)));
+		_putchar(s[index]);
 	}
 	_putchar('\n');
 }
