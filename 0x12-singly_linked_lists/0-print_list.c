@@ -3,29 +3,28 @@
 #include <stdio.h>
 
 /**
- * struct list_s - singly linked list
- * @str: string - (malloc'ed string)
- * @len: length of the string
- * @next: points to the next node
+ * print_list - print the contents of a list.
+ * @h: pointer to list.
  *
- * Description: singly linked list node structure
+ * Return: number of elements in a list
  */
+
 size_t print_list(const list_t *h)
 {
-	int counter = 0;
+	size_t n_nodes;
 
-	while (h != NULL)
-	{
-		if (h->NULL)
-		{
-			printf("[%d] %s\n", 0, "(nil)");
-		}
+	if (!h)
+		return (0);
+	n_nodes = 0;
+	do {
+		if (!h->str)
+			printf("[0] (nil)\n");
 		else
-		{
 			printf("[%d] %s\n", h->len, h->str);
-		}
-		h = h->next;
-		counter++;
-	}
-}
 
+		h = h->next;
+		n_nodes++;
+	}  while (h);
+
+	return (n_nodes);
+}
